@@ -42,3 +42,15 @@ Ais say ham nay form ko copy kia hay
 
 ## UserButton
 dashboard may userButton insert kia jo kay clerk say ata hay jo userprofile show karta hay puri
+
+## Header Section
+- Ak folder banaya _components (Q kay underscore valy components)ko nextjs rout nahi manta hay
+
+- Ya folder dashboard may banaya hay aus may header component bana kay phir dashboard kay layout may dal dia ta kay dashboard kay her route pay ya nazar ay header
+
+- Logo Selection ham nay logoipsum website say kia 
+
+- Tori editing ki aur usepath hook use kia ta kay jo link pay ham ho vo active ho jay phir condition laga kay use ho gaya
+
+- Phir main ul pay hidden kar dia md: pay ham nay aus ko bold kar dia hay
+

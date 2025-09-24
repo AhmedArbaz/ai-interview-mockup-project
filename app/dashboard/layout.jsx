@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from './_components/Header'
 
-const Dashboard = () => {
+function Dashboard  ({childern}) {
   return (
-    <div>Dashboard</div>
+    <div>
+      <Header/>
+      {childern}
+      </div>
   )
 }
 
