@@ -34,4 +34,5 @@ export default clerkMiddleware(async (auth, req) => {
 
 - Ab ham ager /dashboard pay jain gay to hamin clerk redirect kary ga login page pay lakin vo login page hamara apna nahi route ho ga page reload ho ga so aus say bachnay kay liay ham apny signin uar sign-up page khud banin
 
-
+# Clerk Elements
+Ais say ham apna signup signin page fully change kar sakty hain jasay chao
