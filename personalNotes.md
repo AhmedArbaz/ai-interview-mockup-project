@@ -54,3 +54,68 @@ dashboard may userButton insert kia jo kay clerk say ata hay jo userprofile show
 
 - Phir main ul pay hidden kar dia md: pay ham nay aus ko bold kar dia hay
 
+## Backend Setup
+
+- Ham postgress use karin gay database kay liay 
+
+- Lakin Query na likhni paray to ham Drizzle CRM use karin gay ta kay record add aur retrive karin bina kisi query kay
+
+Postgress Neon >Select > then run below commands
+
+npm i drizzle-orm @neondatabase/serverless
+npm i -D drizzle-kit
+
+### Now we start Creating DataBase
+
+- 1st create utils folder > then file db.js in root dir
+
+- Paste template 4 lines of code 
+
+ import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
+
+const sql = neon(process.env.DATABASE_URL!);
+const db = drizzle({ client: sql });
+
+const result = await db.execute('select 1');
+
+
+- Now Go to neon.tech to get Database url
+- We create neon account then > Create Database Copy its connection url and paste it on env.local and its name used in db.js
+
+- Now go to the Drizzle Kit > Setup Configuration.js
+
+- Create a file drizzle.config.js paste a code in it
+
+import { defineConfig } from "drizzle-kit";
+
+export default defineConfig({
+
+  dialect: "postgresql",
+
+  schema: "./utils/schema.js", //jaha file hay aus ka same path day dia
+
+  out: "./drizzle",
+
+  dbCredentials:{
+
+    url:'postgresql://neondb_owner:npg_MTmEIL12NfdV@ep-proud-surf-ad0jgupw-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+  }
+  
+});
+
+- Ya url may ham nay apny neon database ka link dia hay jo kay ham nay env.local may save kia tha vaha pay jo save kia hay vo direct name ham nay db.js may use kia hay but yaha hamin vo as link dana hota hay
+
+- Ab same utils folder may schema.js ki file create ki schema banaya aur phir ais ko db.js may import kar kay use kia end line of code may
+
+export const db = drizzle(sql,{schema});
+
+- Phir package.json may may 2 commands di thi
+
+    "db:push": "npx drizzle-kit push",
+    "db:studio":"npx drizzle-kit studio"
+
+    phir npm run db:push karnay say table create ho jay gi 
+
+    Aur npm run db:studio karny say db studio ka line a jay ga
+
